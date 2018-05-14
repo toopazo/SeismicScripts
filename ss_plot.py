@@ -4,8 +4,8 @@ __author__ = 'toopazo'
 import argparse
 import os
 from obspy.core import read
-#import matplotlib
-#matplotlib.rcParams.chunksize(100000)
+# import matplotlib
+# matplotlib.rcParams.chunksize(100000)
 
 
 def plot_file(infile, outfile, outfilter, outdayplot):
@@ -42,6 +42,7 @@ def plot_file(infile, outfile, outfilter, outdayplot):
         if outfilter is not None:
             st.filter("lowpass", freq=int(outfilter), corners=10)   # , zerophase=True
         st.plot(type=plot_option_type, method='full')
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Plot given file(s) (obspy wrapper)')

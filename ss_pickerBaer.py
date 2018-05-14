@@ -4,10 +4,10 @@ __author__ = 'toopazo'
 import argparse
 import os
 from obspy.core import read
-#from obspy.core import UTCDateTime
-from obspy.signal.trigger import arPick
-from obspy.signal.trigger import pkBaer
-from obspy.core import UTCDateTime
+# from obspy.core import UTCDateTime
+# from obspy.signal.trigger import arPick
+from obspy.signal.trigger import pk_baer
+# from obspy.core import UTCDateTime
 
 parser = argparse.ArgumentParser(description='Plot given file(s) (obspy wrapper)')
 parser.add_argument('--infile', action='store', help='files to process', nargs='+', required=True)
@@ -46,7 +46,7 @@ tr1 = st[0]
 # tr2 = st[1]
 # tr3 = st[2]
 
-p_pick, phase_info = pkBaer(tr1.data, df, 20, 60, 7.0, 12.0, 100, 100)
+p_pick, phase_info = pk_baer(tr1.data, df, 20, 60, 7.0, 12.0, 100, 100)
 print(p_pick)
 print(phase_info)
 print(p_pick/df)
